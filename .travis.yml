@@ -20,7 +20,7 @@ after_success:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
         
-        - docker push arajputkdocker/multi-client
+        - docker push arajputdocker/multi-client
         - docker push arajputdocker/multi-nginx
         - docker push arajputdocker/multi-server
         - docker push arajputdocker/multi-worker
