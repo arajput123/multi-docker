@@ -15,16 +15,14 @@ after_success:
         - docker build -t arajputdocker/multi-nginx ./nginx
         - docker build -t arajputdocker/multi-server ./server
         - docker build -t arajputdocker/multi-worker ./worker
-        
-          # Login to Docker CLI
-          #
+      
 
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
-        # take these images and push them to docker hub
-          - docker push arajputkdocker/multi-client
-            - docker push arajputdocker/multi-nginx
-            - docker push arajputdocker/multi-server
-            - docker push arajputdocker/multi-worker
+        
+        - docker push arajputkdocker/multi-client
+        - docker push arajputdocker/multi-nginx
+        - docker push arajputdocker/multi-server
+        - docker push arajputdocker/multi-worker
 
 
