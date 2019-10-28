@@ -1,0 +1,49 @@
+{
+	"AWSEBDockerrunVersion": 2,
+       "containerDefinitions": [
+       	{
+		"name": "client",
+		"image": "arajputdocker/multi-client",
+		"hostname": "client",
+		"essential": false
+	
+	},
+
+	{
+		"name": "server",
+		"image": "arajputdocker/multi-server",
+		"hostname": "api",
+		"essential": false	
+	
+	},
+
+	{
+		"name": "worker",
+		"image": "arajputdocker/multi-worker",
+		"hostname": "worker",
+		"essential": false
+	
+	},
+
+	{
+		"name": "nginx",
+		"image": "arajputdocker/multi-nginx",
+		"hostname": "nginx",
+		"essential": true,
+		"port-mappings": [
+			{
+				"hostPort": 80,
+				"containerPort": 80 
+			
+			}
+		
+		],
+
+		"links": ["client", "server"]
+		
+	}
+
+
+       
+       ]
+}
